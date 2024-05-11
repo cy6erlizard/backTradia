@@ -3,18 +3,10 @@ package com.vikram.JWT.model;
 import java.util.Collection;
 import java.util.List;
 
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "user")
@@ -35,7 +27,10 @@ public class User implements UserDetails {
 	String password;
 	
 	@Column(name="username")
-	String username; 
+	String username;
+	@OneToOne
+	Portfolio portfolio;
+
 
 	
 
